@@ -7,6 +7,8 @@ from .models import Weather, City, Subscribed
 from .permissions import IsOwnerOrReadOnly, IsAdminOrReadOnly
 from .serializers import CitiesWeatherSerializer, CitySerializer
 from .serializers import SubscribedSerializer
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
 
 
 # Create your views here.
@@ -34,6 +36,16 @@ class SubscribedAPIList(generics.ListCreateAPIView):
     queryset = Subscribed.objects.all()
     serializer_class = SubscribedSerializer
     permission_classes = (IsAuthenticated,)
+
+    def getOrUpdateOrDelete(request, pk):
+        if request.method == 'GET':
+            subscrib = Subscribed.objects.get(id=pk)
+            serializer = SubscribedSerializer(subscrib, many=False)
+
+        elif request.method == 'DELETE':
+            subscribed = Subscribed.objects.get(id=pk)
+            subscribed.delete()
+            return Response('Deleted!')
 
 
 class SubscribedAPIDetailView(generics.RetrieveUpdateDestroyAPIView):
