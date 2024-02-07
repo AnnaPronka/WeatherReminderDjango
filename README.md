@@ -1,7 +1,7 @@
-# DjangoWeatherReminder
+# WeatherReminder
 
 ## Description
-DjangoWeatherReminder is an application designed to provide users with current weather information retrieved from the Weatherbit API (https://www.weatherbit.io/api/weather-current). Users can access weather data through various API endpoints, including GET, POST, and UPDATE requests. Additionally, users can subscribe to receive weather updates via email for specific cities, with authorization managed through JWT tokens.
+WeatherReminder is an application designed to provide users with current weather information retrieved from the Weatherbit API (https://www.weatherbit.io/api/weather-current). Users can access weather data through various API endpoints, including GET, POST, and UPDATE requests. Additionally, users can subscribe to receive weather updates via email for specific cities, with authorization managed through JWT tokens.
 
 ## Main Frameworks
 - Django
